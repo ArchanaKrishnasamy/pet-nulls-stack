@@ -61,6 +61,6 @@ resource_policy "null_resource" "complex_policy2" {
     enforce {
         condition = attrs.triggers == null
         error_message = "null_resource triggers must not be null"
-        info_message  = "deployment group: ${tfe_stack.deployment_group}, deployment name: ${tfe_stack.deployment_name}, stack: ${tfe_stack.stack_name}"
+        info_message  = "deployment group: ${meta.tfe_stack.deployment_group}, deployment name: ${meta.tfe_stack.deployment_name}, stack: ${meta.tfe_stack.stack_name}"
     }
 }

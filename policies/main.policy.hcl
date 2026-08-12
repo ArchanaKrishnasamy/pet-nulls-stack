@@ -61,8 +61,8 @@ resource_policy "null_resource" "delete_operation_policy" {
     operations = ["delete"]
     enforce {
         condition = attrs.triggers == null
-        error_message = "null_resource triggers must not be null"
-        info_message  = "deployment group: ${tfe_stack.deployment_group}, deployment name: ${tfe_stack.deployment_name}, stack: ${tfe_stack.stack_name}"
+        error_message = "delete operation is not allowed for null_resource"
+        info_message  = "deployment group: ${meta.tfe_stack.deployment_group}, deployment name: ${meta.tfe_stack.deployment_name}, stack: ${meta.tfe_stack.stack_name}"
     }
 }
 
@@ -70,8 +70,8 @@ resource_policy "random_pet" "delete_length_pass_policy" {
     enforcement_level = "advisory"
   enforce {
     condition = false
-    error_message = "delelete operation is not allowed for random_pet resource"
-    info_message  = "deployment group: ${tfe_stack.deployment_group}, deployment name: ${tfe_stack.deployment_name}, stack: ${tfe_stack.stack_name}"
+    error_message = "delete operation is not allowed for random_pet resource"
+    info_message  = "deployment group: ${meta.tfe_stack.deployment_group}, deployment name: ${meta.tfe_stack.deployment_name}, stack: ${meta.tfe_stack.stack_name}"
     }
 }
 
@@ -79,7 +79,7 @@ resource_policy "random_integer" "delete_number_pass_policy" {
     enforcement_level = "advisory"
     enforce {
         condition = false
-        error_message = "delelete operation is not allowed for random_integer resource"
-        info_message  = "deployment group: ${tfe_stack.deployment_group}, deployment name: ${tfe_stack.deployment_name}, stack: ${tfe_stack.stack_name}"
+        error_message = "delete operation is not allowed for random_integer resource"
+        info_message  = "deployment group: ${meta.tfe_stack.deployment_group}, deployment name: ${meta.tfe_stack.deployment_name}, stack: ${meta.tfe_stack.stack_name}"
     }
 }
