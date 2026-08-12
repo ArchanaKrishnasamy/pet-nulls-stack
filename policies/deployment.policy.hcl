@@ -37,11 +37,11 @@ resource_policy "random_integer" "complex_number_fail_policy" {
 
 resource_policy "random_pet" "complex_length_fail_policy" {
     enforcement_level = "advisory"
-    filter = meta.tfe_stack.deployment_name == local.approved_deployment_name
     enforce {
         condition = attrs.length < 3
         error_message = "random_pet length must be at least 3"
-        info_message  = "length: ${attrs.length}, name: ${meta.name}"
+        info_message  = "deployment group: ${meta.tfe_stack.deployment_group}, deployment name: ${meta.tfe_stack.deployment_name}, stack: ${meta.tfe_stack.stack_name}"
+
     }
 }
 
