@@ -68,6 +68,7 @@ resource_policy "null_resource" "delete_operation_policy" {
 
 resource_policy "random_pet" "delete_length_pass_policy" {
     enforcement_level = "advisory"
+    operations = ["delete"]
   enforce {
     condition = false
     error_message = "delete operation is not allowed for random_pet resource"
@@ -77,6 +78,7 @@ resource_policy "random_pet" "delete_length_pass_policy" {
 
 resource_policy "random_integer" "delete_number_pass_policy" {
     enforcement_level = "advisory"
+    operations = ["delete"]
     enforce {
         condition = false
         error_message = "delete operation is not allowed for random_integer resource"
