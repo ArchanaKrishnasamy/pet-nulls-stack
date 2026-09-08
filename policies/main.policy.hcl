@@ -86,12 +86,12 @@ resource_policy "random_integer" "delete_number_pass_policy" {
     }
 }
 
-resource_policy "null_resource" "update_operation_policy" {
-    enforcement_level = "mandatory"
+resource_policy "null_resource" "update_operation_policy12@#%/" {
+    enforcement_level = input.enforcement_level
     operations = ["update"]
     enforce {
         condition = attrs.triggers == null
-        error_message = "update operation is not allowed for null_resource"
+        error_message = "update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resource update operation is not allowed for null_resourceupdate operation is not allowed for null_resourceupdate operation is not allowed for null_resourceupdate operation is not allowed for null_resourceupdate operation is not allowed for null_resourceupdate operation is not allowed for null_resource"
         info_message  = "deployment group: ${meta.tfe_stack.deployment_group}, deployment name: ${meta.tfe_stack.deployment_name}, stack: ${meta.tfe_stack.stack_name}"
     }
 }
