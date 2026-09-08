@@ -5,6 +5,11 @@ locals {
   approved_deployment_name = "complex"
 }
 
+input "enforcement_level" {
+  type    = string
+  default = "advisory"
+}
+
 resource_policy "random_pet" "complex_length_pass_policy" {
     enforcement_level = "advisory"
     filter = meta.tfe_stack.deployment_name == local.approved_deployment_name
