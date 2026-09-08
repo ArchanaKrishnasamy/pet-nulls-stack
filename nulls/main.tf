@@ -14,6 +14,10 @@ variable "pet" {
   type = string
 }
 
+variable "prefix" {
+  type = string
+}
+
 variable "instances" {
   type = number
 }
@@ -23,6 +27,7 @@ resource "null_resource" "this" {
 
   triggers = {
     pet = var.pet
+    prefix = var.prefix
   }
 }
 

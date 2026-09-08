@@ -43,6 +43,7 @@ component "nulls" {
   inputs = {
     pet       = component.pet.name
     instances = var.instances
+    prefix = var.prefix
   }
 
   providers = {
@@ -56,6 +57,7 @@ component "nils" {
   inputs = {
     pet = component.pet.latename
     instances = component.pet.number
+    prefix = var.prefix
   }
 
   providers = {
@@ -69,6 +71,7 @@ component "nails" {
   inputs = {
     pet       = component.pet.name
     instances = var.instances
+    prefix = var.prefix
   }
 
   providers = {
