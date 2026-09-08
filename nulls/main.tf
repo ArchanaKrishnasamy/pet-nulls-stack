@@ -27,7 +27,7 @@ resource "null_resource" "this" {
 
   triggers = {
     pet = var.pet
-    prefix = var.prefix
+    prefix = "${var.prefix}-${count.index + 1}"
   }
 }
 
