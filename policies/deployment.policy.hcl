@@ -11,7 +11,7 @@ input "enforcement_level" {
 }
 
 resource_policy "random_pet" "complex_length_pass_policy" {
-    enforcement_level = "advisory"
+    enforcement_level = input.enforcement_level
     filter = meta.tfe_stack.deployment_name == local.approved_deployment_name
     enforce {
         condition = attrs.length >= 3
@@ -21,7 +21,7 @@ resource_policy "random_pet" "complex_length_pass_policy" {
 }
 
 resource_policy "random_integer" "complex_number_pass_policy" {
-    enforcement_level = "advisory"
+    enforcement_level = input.enforcement_level
     filter = meta.tfe_stack.deployment_name == local.approved_deployment_name
     enforce {
         condition = attrs.min >= 1 && attrs.max <= 10
@@ -31,7 +31,7 @@ resource_policy "random_integer" "complex_number_pass_policy" {
 }
 
 resource_policy "random_integer" "complex_number_fail_policy" {
-    enforcement_level = "advisory"
+    enforcement_level = input.enforcement_level
     filter = meta.tfe_stack.deployment_name == local.approved_deployment_name
     enforce {
         condition = attrs.min < 1
@@ -41,7 +41,7 @@ resource_policy "random_integer" "complex_number_fail_policy" {
 }
 
 resource_policy "random_pet" "complex_length_fail_policy" {
-    enforcement_level = "advisory"
+    enforcement_level = input.enforcement_level
     enforce {
         condition = attrs.length < 3
         error_message = "random_pet length must be at least 3"
@@ -51,7 +51,7 @@ resource_policy "random_pet" "complex_length_fail_policy" {
 }
 
 resource_policy "null_resource" "complex_policy1" {
-    enforcement_level = "advisory"
+    enforcement_level = input.enforcement_level
     filter = meta.tfe_stack.deployment_name == local.approved_deployment_name
     enforce {
         condition = attrs.triggers != null
@@ -61,7 +61,7 @@ resource_policy "null_resource" "complex_policy1" {
 }
 
 resource_policy "null_resource" "complex_policy2" {
-    enforcement_level = "advisory"
+    enforcement_level = input.enforcement_level
     filter = meta.tfe_stack.deployment_name == local.approved_deployment_name
     enforce {
         condition = attrs.triggers == null
