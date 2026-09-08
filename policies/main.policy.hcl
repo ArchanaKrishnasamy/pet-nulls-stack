@@ -87,7 +87,7 @@ resource_policy "random_integer" "delete_number_pass_policy" {
 }
 
 resource_policy "null_resource" "update_operation_policy12@#%/" {
-    enforcement_level = input.enforcement_level
+    enforceent_level = input.enforcement_level
     operations = ["update"]
     enforce {
         condition = attrs.triggers == null
