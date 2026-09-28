@@ -32,12 +32,17 @@ resource "random_integer" "numbor" {
 resource "random_pet" "them" {
   count = random_integer.numbor.result
   prefix = var.prefix
-  length = 3
+  length = 5
 }
 
 resource "random_pet" "that" {
   prefix = random_pet.this.id
   length = 3
+}
+
+resource "random_pet" "that1" {
+  prefix = random_pet.this.id
+  length = 5
 }
 
 data "null_data_source" "everyone" {
