@@ -69,3 +69,23 @@ resource_policy "null_resource" "complex_policy2" {
         info_message  = "deployment group: ${meta.tfe_stack.deployment_group}, deployment name: ${meta.tfe_stack.deployment_name}, stack: ${meta.tfe_stack.stack_name}"
     }
 }
+
+
+module_policy "./module_pet" "module_pet_policy" {
+  enforcement_level = input.enforcement_level
+  enforce {
+    condition     = true
+    error_message = "module policy for random module"
+    info_message  = "info module policy for random module"
+  }
+}
+
+
+module_policy "*" "all_module_policy" {
+  enforcement_level = input.enforcement_level
+  enforce {
+    condition     = true
+    error_message = "module policy for all modules"
+    info_message  = "info module policy for all modules"
+  }
+}
