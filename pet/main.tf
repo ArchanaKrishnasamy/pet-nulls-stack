@@ -36,18 +36,18 @@ resource "random_pet" "them" {
 }
 
 resource "random_pet" "that" {
-  prefix = random_pet.this.id
+  prefix = random_pet.this_updated.id
   length = 3
 }
 
 resource "random_pet" "that1" {
-  prefix = random_pet.this.id
+  prefix = random_pet.this_updated.id
   length = 5
 }
 
 data "null_data_source" "everyone" {
   inputs = {
-    this = random_pet.this.id
+    this = random_pet.this_updated.id
     that = random_pet.that.id
     them = join(", ", random_pet.them[*].id)
     the_other_thing = tostring(random_integer.numbor.result)
@@ -55,7 +55,7 @@ data "null_data_source" "everyone" {
 }
 
 output "name" {
-  value = random_pet.this.id
+  value = random_pet.this_updated.id
 }
 
 output "latename" {
