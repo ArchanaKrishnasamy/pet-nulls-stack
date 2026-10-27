@@ -19,14 +19,14 @@ variable "prefix" {
   type = string
 }
 
-resource "random_pet" "this" {
+resource "random_pet" "this_updated" {
   prefix = var.prefix
   length = 3
 }
 
 resource "random_integer" "numbor" {
     min = 1
-    max = 11
+    max = 15
 }
 
 resource "random_pet" "them" {
