@@ -53,3 +53,19 @@ data "null_data_source" "everyone" {
     the_other_thing = tostring(random_integer.numbor.result)
   }
 }
+
+output "name" {
+  value = random_pet.this.id
+}
+
+output "latename" {
+  value = random_pet.that.id
+}
+
+output "number" {
+  value = random_integer.numbor.result
+}
+
+output "everyone" {
+  value = data.null_data_source.everyone.outputs
+}
