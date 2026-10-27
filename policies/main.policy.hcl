@@ -60,7 +60,7 @@ resource_policy "null_resource" "delete_operation_policy" {
     enforcement_level = input.enforcement_level
     operations = ["delete"]
     enforce {
-        condition = attrs.triggers == null
+        condition = prior_attrs.triggers == null
         error_message = "delete operation is not allowed for null_resource"
         info_message  = "deployment group: ${meta.tfe_stack.deployment_group}, deployment name: ${meta.tfe_stack.deployment_name}, stack: ${meta.tfe_stack.stack_name}"
     }
